@@ -1,0 +1,39 @@
+NXP Software Content Register
+
+Release - libvoiceseeker_no_aec v0.6.0
+October 2022
+
+Outgoing License: LA_OPT_NXP_Software_License v39 August 2022 - Additional distribution license granted, Section 2.3 applies
+License File:     license.txt
+
+Release tag: v0.6.0
+
+--------------------------------------------
+Package:                    libvoiceseeker_no_aec.a
+Version:                    0.6.0
+Outgoing License:           LA_OPT_NXP_Software_License v39 August 2022 - Additional distribution license granted, Section 2.3 applies
+License File:               license.txt
+Package Category:           library
+Type of Content:            object code and headers
+Description and comments:	Audio front end with beamforming for voice UI. Acoustic Echo Cancellation (AEC) is disabled.
+Release Location:           ./ARM_CortexM33/lib/libvoiceseeker_no_aec.a
+							./ARM_CortexM4/lib/libvoiceseeker_no_aec.a
+							./ARM_CortexM7/lib/libvoiceseeker_no_aec.a
+Origin:                     NXP (proprietary)
+							ARM CMSIS 5.0.4 (Apache-2.0) - https://github.com/ARM-software/CMSIS_5
+
+--------------------------------------------
+
+Package:                    libvoiceseeker_no_aec.a
+Version:                    0.6.0
+Outgoing License:           LA_OPT_NXP_Software_License v39 August 2022 - Additional distribution license granted, Section 2.3 applies
+License File:               ./license.txt
+Package Category:           library
+Type of Content:            object code and headers
+Description and comments:	Audio front end with beamforming for voice UI.  Acoustic Echo Cancellation (AEC) is disabled.
+Release Location:           ./RT595_FusionF1/lib/libvoiceseeker_no_aec.a
+							./RT685_HiFi4/lib/libvoiceseeker_no_aec.a
+Origin:						NXP (proprietary)
+							Nature DSP Library 1.2.0, 4.1.1 (proprietary) - Cadence Design Systems
+
+--------------------------------------------
