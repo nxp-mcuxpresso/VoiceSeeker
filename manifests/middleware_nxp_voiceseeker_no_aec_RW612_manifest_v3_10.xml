@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_nxp_voiceseeker_no_aec_RW612_manifest_v3_10" name="VoiceSeeker (no AEC)" brief="VoiceSeeker is a multi-microphone voice control audio front-end signal processing solution. VoiceSeeker is not featuring acoustic echo cancellation (AEC)." format_version="3.10" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.10.xsd">
+
+  <externalDefinitions>
+    <definition extID="RW612"/>
+    <definition extID="armgcc"/>
+    <definition extID="mcuxpresso"/>
+  </externalDefinitions>
+  <ksdk id="MCUXpressoSDK2133_middleware_nxp_voiceseeker_no_aec_RW612_manifest_v3_10" name="MCUXpressoSDK2133_middleware_nxp_voiceseeker_no_aec_RW612_manifest_v3_10" version="2.13.3" revision="2.13.3"/>
+  <components>
+    <component id="middleware.voice_seeker.cm33_nodsp.RW612" name="voice_seeker" brief="Voice seeker library for Cortex M33_noDSP" version="0.6.8" full_name="middleware voice_seeker cm33 no DSP" devices="RW612" category="Voice/VoiceSeeker library" user_visible="true" type="middleware" package_base_path=".././ARM_CortexM33_noDSP" project_base_path="voice_seeker">
+      <source toolchain="armgcc mcuxpresso" relative_path="../include" project_relative_path="include" type="c_include">
+        <files mask="RdspCycleCounter.h"/>
+        <files mask="RdspStatusCodes.h"/>
+        <files mask="libVoiceSeekerLight.h"/>
+      </source>
+      <source toolchain="armgcc mcuxpresso" relative_path="../lib" project_relative_path="lib" type="lib">
+        <files mask="libvoiceseeker_no_aec.a"/>
+      </source>
+      <source toolchain="armgcc mcuxpresso" relative_path="../rdsp_utilities_public/include" project_relative_path="rdsp_utilities_public/include" type="c_include">
+        <files mask="RdspDeviceConfig.h"/>
+        <files mask="RdspPlatforms.h"/>
+        <files mask="RdspTypes.h"/>
+      </source>
+      <source toolchain="armgcc mcuxpresso" relative_path="../rdsp_utilities_public/rdsp_memory_utils_public" project_relative_path="rdsp_utilities_public/rdsp_memory_utils_public" type="c_include">
+        <files mask="RdspMemoryUtilsPublic.h"/>
+        <files mask="RdspStackCheck.h"/>
+        <files mask="memcheck.h"/>
+      </source>
+      <source toolchain="armgcc mcuxpresso" relative_path="../rdsp_utilities_public/rdsp_memory_utils_public" project_relative_path="rdsp_utilities_public/rdsp_memory_utils_public" type="src">
+        <files mask="RdspMemoryUtilsPublic.c"/>
+        <files mask="memcheck.c"/>
+      </source>
+      <source exclude="true" relative_path="./" type="doc">
+        <files mask="LICENSE.txt" hidden="true"/>
+      </source>
+      <source toolchain="armgcc" relative_path="./" project_relative_path="." type="workspace">
+        <files mask="middleware_voice_seeker_cm33_nodsp_RW612.cmake" hidden="true"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="../include" project_relative_path="include" toolchain="armgcc mcuxpresso" type="c_include"/>
+        <include_path relative_path="../rdsp_utilities_public/include" project_relative_path="rdsp_utilities_public/include" toolchain="armgcc mcuxpresso" type="c_include"/>
+        <include_path relative_path="../rdsp_utilities_public/rdsp_memory_utils_public" project_relative_path="rdsp_utilities_public/rdsp_memory_utils_public" toolchain="armgcc mcuxpresso" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.voice_seeker.rdsp_utilities_public.RW612" name="voice_seeker memory utils" brief="Voice seeker memory utilities" version="0.6.8" full_name="middleware voice_seeker memory utils" devices="RW612" category="Voice/VoiceSeeker library" user_visible="true" type="middleware" package_base_path=".././rdsp_utilities_public" project_base_path="voice_seeker/rdsp_utilities_public">
+      <include_paths>
+        <include_path relative_path="../include" project_relative_path="include" toolchain="armgcc mcuxpresso" type="c_include"/>
+        <include_path relative_path="../rdsp_memory_utils_public" project_relative_path="rdsp_memory_utils_public" toolchain="armgcc mcuxpresso" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.voice_seeker.template.RW612" name="voice_seeker_template" brief="voice_seeker template" version="0.6.8" full_name="voice_seeker template configuration" devices="RW612" user_visible="false" type="project_template" package_base_path=".././" project_base_path="voice_seeker">
+      <include_paths>
+        <include_path relative_path="./ARM_CortexM7/include" project_relative_path="ARM_CortexM7/include" type="c_include"/>
+      </include_paths>
+    </component>
+  </components>
+</ksdk:manifest>
