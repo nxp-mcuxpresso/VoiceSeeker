@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_nxp_voiceseeker_no_aec_MIMXRT1062_manifest_v3_14" name="VoiceSeeker (no AEC)" brief="VoiceSeeker is a multi-microphone voice control audio front-end signal processing solution. VoiceSeeker is not featuring acoustic echo cancellation (AEC)." format_version="3.14" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.14.xsd">
+
+  <externalDefinitions>
+    <definition extID="evkmimxrt1060"/>
+    <definition extID="evkbmimxrt1060"/>
+    <definition extID="evkcmimxrt1060"/>
+    <definition extID="MIMXRT1062xxxxA"/>
+    <definition extID="MIMXRT1062xxxxB"/>
+    <definition extID="armgcc"/>
+    <definition extID="mcuxpresso"/>
+    <definition extID="core0_MIMXRT1062xxxxA"/>
+    <definition extID="core0_MIMXRT1062xxxxB"/>
+  </externalDefinitions>
+  <ksdk id="MCUXpressoSDK2150_middleware_nxp_voiceseeker_no_aec_MIMXRT1062_manifest_v3_14" name="MCUXpressoSDK2150_middleware_nxp_voiceseeker_no_aec_MIMXRT1062_manifest_v3_14" version="2.15.0" revision="2.15.0"/>
+  <components>
+    <component id="middleware.voice_seeker.cm7.MIMXRT1062" name="voice_seeker" brief="Voice seeker library for Cortex M7" version="0.6.8" full_name="middleware voice_seeker cm7" category="Voice/Voice Control AFE" user_visible="true" type="middleware" package_base_path=".././ARM_CortexM7" project_base_path="voice_seeker">
+      <dependencies>
+        <all>
+          <any_of>
+            <board_dependency value="evkmimxrt1060"/>
+            <board_dependency value="evkbmimxrt1060"/>
+            <board_dependency value="evkcmimxrt1060"/>
+          </any_of>
+          <any_of>
+            <device_dependency value="MIMXRT1062xxxxA"/>
+            <device_dependency value="MIMXRT1062xxxxB"/>
+          </any_of>
+          <component_dependency value="middleware.voice_seeker.rdsp_utilities_public.cm7.MIMXRT1062"/>
+        </all>
+      </dependencies>
+      <source toolchain="armgcc mcuxpresso" relative_path="../include" project_relative_path="include" type="c_include">
+        <files mask="RdspCycleCounter.h"/>
+        <files mask="RdspStatusCodes.h"/>
+        <files mask="libVoiceSeekerLight.h"/>
+      </source>
+      <source toolchain="armgcc mcuxpresso" relative_path="../lib" project_relative_path="lib" type="lib">
+        <files mask="libvoiceseeker_no_aec.a"/>
+      </source>
+      <source exclude="true" relative_path="./" type="doc">
+        <files mask="LICENSE.txt" hidden="true"/>
+        <files mask="SCR-ARM_CortexM7-v0.6.8.txt" hidden="true"/>
+      </source>
+      <source toolchain="armgcc" relative_path="./" type="workspace">
+        <files mask="middleware_voice_seeker_cm7.cmake" hidden="true"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="../include" project_relative_path="include" toolchain="armgcc mcuxpresso" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.voice_seeker.rdsp_utilities_public.cm7.MIMXRT1062" name="voice_seeker memory utils" brief="Voice seeker memory utilities for Cortex M7" version="0.6.8" full_name="middleware voice_seeker memory utils cm7" category="Voice/Voice Control AFE" user_visible="true" type="middleware" package_base_path=".././ARM_CortexM7/rdsp_utilities_public" project_base_path="voice_seeker/ARM_CortexM7/rdsp_utilities_public">
+      <dependencies>
+        <all>
+          <any_of>
+            <device_core_dependency value="core0_MIMXRT1062xxxxA"/>
+            <device_core_dependency value="core0_MIMXRT1062xxxxB"/>
+          </any_of>
+          <any_of>
+            <board_dependency value="evkmimxrt1060"/>
+            <board_dependency value="evkbmimxrt1060"/>
+            <board_dependency value="evkcmimxrt1060"/>
+          </any_of>
+          <any_of>
+            <device_dependency value="MIMXRT1062xxxxA"/>
+            <device_dependency value="MIMXRT1062xxxxB"/>
+          </any_of>
+        </all>
+      </dependencies>
+      <source toolchain="armgcc mcuxpresso" relative_path="../../include" project_relative_path="include" type="c_include">
+        <files mask="RdspDeviceConfig.h"/>
+        <files mask="RdspPlatforms.h"/>
+        <files mask="RdspTypes.h"/>
+      </source>
+      <source toolchain="armgcc mcuxpresso" relative_path="../../rdsp_memory_utils_public" project_relative_path="rdsp_memory_utils_public" type="c_include">
+        <files mask="RdspMemoryUtilsPublic.h"/>
+        <files mask="RdspStackCheck.h"/>
+        <files mask="memcheck.h"/>
+      </source>
+      <source toolchain="armgcc mcuxpresso" relative_path="../../rdsp_memory_utils_public" project_relative_path="rdsp_memory_utils_public" type="src">
+        <files mask="RdspMemoryUtilsPublic.c"/>
+        <files mask="memcheck.c"/>
+      </source>
+      <source toolchain="armgcc" relative_path="./" type="workspace">
+        <files mask="middleware_voice_seeker_rdsp_utilities_public_cm7.cmake" hidden="true"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="../../include" project_relative_path="include" toolchain="armgcc mcuxpresso" type="c_include"/>
+        <include_path relative_path="../../rdsp_memory_utils_public" project_relative_path="rdsp_memory_utils_public" toolchain="armgcc mcuxpresso" type="c_include"/>
+      </include_paths>
+    </component>
+  </components>
+</ksdk:manifest>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_middleware_nxp_voiceseeker_no_aec_MIMXRT685S_manifest_v3_14" name="VoiceSeeker (no AEC)" brief="VoiceSeeker is a multi-microphone voice control audio front-end signal processing solution. VoiceSeeker is not featuring acoustic echo cancellation (AEC)." format_version="3.14" api_version="2.0.0" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.14.xsd">
+
+  <externalDefinitions>
+    <definition extID="evkmimxrt685"/>
+    <definition extID="mimxrt685audevk"/>
+    <definition extID="MIMXRT685S"/>
+    <definition extID="armgcc"/>
+    <definition extID="hifi4_MIMXRT685S"/>
+  </externalDefinitions>
+  <ksdk id="MCUXpressoSDK2150_middleware_nxp_voiceseeker_no_aec_MIMXRT685S_manifest_v3_14" name="MCUXpressoSDK2150_middleware_nxp_voiceseeker_no_aec_MIMXRT685S_manifest_v3_14" version="2.15.0" revision="2.15.0"/>
+  <components>
+    <component id="middleware.voice_seeker.hifi4.MIMXRT685S" name="voice_seeker" brief="Voice seeker library for HiFi4" version="0.6.8" full_name="middleware voice_seeker HiFi4" category="Voice/Voice Control AFE" user_visible="true" type="middleware" package_base_path=".././RT685_HiFi4" project_base_path="voice_seeker">
+      <defines>
+        <define name="HIFI4" value="1"/>
+      </defines>
+      <dependencies>
+        <all>
+          <any_of>
+            <board_dependency value="evkmimxrt685"/>
+            <board_dependency value="mimxrt685audevk"/>
+          </any_of>
+          <component_dependency value="middleware.voice_seeker.rdsp_utilities_public.hifi4.MIMXRT685S"/>
+          <device_dependency value="MIMXRT685S"/>
+        </all>
+      </dependencies>
+      <source exclude="true" relative_path="./" type="doc">
+        <files mask="LICENSE.txt" hidden="true"/>
+        <files mask="SCR-RT685_HiFi4-v0.6.8.txt" hidden="true"/>
+      </source>
+      <source toolchain="armgcc" relative_path="./" type="workspace">
+        <files mask="middleware_voice_seeker_hifi4.cmake" hidden="true"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="../include" project_relative_path="include" type="c_include"/>
+      </include_paths>
+    </component>
+    <component id="middleware.voice_seeker.rdsp_utilities_public.hifi4.MIMXRT685S" name="voice_seeker memory utils" brief="Voice seeker memory utilities for RT685_HiFi4" version="0.6.8" full_name="middleware voice_seeker memory utils hifi4" category="Voice/Voice Control AFE" user_visible="true" type="middleware" package_base_path=".././RT685_HiFi4/rdsp_utilities_public" project_base_path="voice_seeker/RT685_HiFi4/rdsp_utilities_public">
+      <dependencies>
+        <all>
+          <any_of>
+            <board_dependency value="evkmimxrt685"/>
+            <board_dependency value="mimxrt685audevk"/>
+          </any_of>
+          <device_dependency value="MIMXRT685S"/>
+          <device_core_dependency value="hifi4_MIMXRT685S"/>
+        </all>
+      </dependencies>
+      <source toolchain="armgcc" relative_path="./" type="workspace">
+        <files mask="middleware_voice_seeker_rdsp_utilities_public_hifi4.cmake" hidden="true"/>
+      </source>
+      <include_paths>
+        <include_path relative_path="../../include" project_relative_path="include" type="c_include"/>
+        <include_path relative_path="../../rdsp_memory_utils_public" project_relative_path="rdsp_memory_utils_public" type="c_include"/>
+      </include_paths>
+    </component>
+  </components>
+</ksdk:manifest>
