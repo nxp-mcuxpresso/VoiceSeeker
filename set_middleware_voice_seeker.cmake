@@ -6,14 +6,14 @@ if (CONFIG_USE_middleware_voice_seeker_rdsp_utilities_public)
 
 message("middleware_voice_seeker_rdsp_utilities_public component is included from ${CMAKE_CURRENT_LIST_FILE}.")
 
-if((CONFIG_TOOLCHAIN STREQUAL armgcc OR CONFIG_TOOLCHAIN STREQUAL mcux OR CONFIG_TOOLCHAIN STREQUAL xcc))
+if((CONFIG_TOOLCHAIN STREQUAL armgcc OR CONFIG_TOOLCHAIN STREQUAL mcux))
   target_sources(${MCUX_SDK_PROJECT_NAME} PRIVATE
       ${CMAKE_CURRENT_LIST_DIR}/rdsp_utilities_public/rdsp_memory_utils_public/RdspMemoryUtilsPublic.c
       ${CMAKE_CURRENT_LIST_DIR}/rdsp_utilities_public/rdsp_memory_utils_public/memcheck.c
   )
 endif()
 
-if((CONFIG_TOOLCHAIN STREQUAL armgcc OR CONFIG_TOOLCHAIN STREQUAL mcux OR CONFIG_TOOLCHAIN STREQUAL xcc))
+if((CONFIG_TOOLCHAIN STREQUAL armgcc OR CONFIG_TOOLCHAIN STREQUAL mcux))
 target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
   ${CMAKE_CURRENT_LIST_DIR}/rdsp_utilities_public/include
   ${CMAKE_CURRENT_LIST_DIR}/rdsp_utilities_public/rdsp_memory_utils_public
@@ -91,20 +91,6 @@ message("middleware_voice_seeker_hifi4 component is included from ${CMAKE_CURREN
 
 if((CONFIG_BOARD STREQUAL evkmimxrt685 OR CONFIG_BOARD STREQUAL mimxrt685audevk) AND CONFIG_USE_middleware_voice_seeker_rdsp_utilities_public)
 
-if(CONFIG_TOOLCHAIN STREQUAL xcc)
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
-  ${CMAKE_CURRENT_LIST_DIR}/./RT685_HiFi4/include
-)
-endif()
-
-if(CONFIG_TOOLCHAIN STREQUAL xcc)
-  target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE
-    -Wl,--start-group
-      ${CMAKE_CURRENT_LIST_DIR}/./RT685_HiFi4/lib/libvoiceseeker_no_aec.a
-      -Wl,--end-group
-  )
-endif()
-
 else()
 
 message(SEND_ERROR "middleware_voice_seeker_hifi4 dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
@@ -120,20 +106,6 @@ if (CONFIG_USE_middleware_voice_seeker_fusionf1)
 message("middleware_voice_seeker_fusionf1 component is included from ${CMAKE_CURRENT_LIST_FILE}.")
 
 if((CONFIG_BOARD STREQUAL evkmimxrt595) AND CONFIG_USE_middleware_voice_seeker_rdsp_utilities_public)
-
-if(CONFIG_TOOLCHAIN STREQUAL xcc)
-target_include_directories(${MCUX_SDK_PROJECT_NAME} PUBLIC
-  ${CMAKE_CURRENT_LIST_DIR}/./RT595_FusionF1/include
-)
-endif()
-
-if(CONFIG_TOOLCHAIN STREQUAL xcc)
-  target_link_libraries(${MCUX_SDK_PROJECT_NAME} PRIVATE
-    -Wl,--start-group
-      ${CMAKE_CURRENT_LIST_DIR}/./RT595_FusionF1/lib/libvoiceseeker_no_aec.a
-      -Wl,--end-group
-  )
-endif()
 
 else()
 
